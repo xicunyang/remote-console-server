@@ -3,10 +3,18 @@ const WebSocket = require('ws');
 const https = require('https');
 const path = require('path');
 
+const certPath = path.join(__dirname, 'pem/full_chain.pem');
+const keyPath = path.join(__dirname, 'pem/private.key');
+
+console.log('certPath:::', certPath);
+console.log('keyPath:::', keyPath);
+
 const server = https.createServer({
-  cert: fs.readFileSync(path.join(__dirname, 'pem/full_chain.pem')),
-  key: fs.readFileSync(path.join(__dirname, 'pem/private.key'))
+  cert: fs.readFileSync(certPath),
+  key: fs.readFileSync(keyPath)
 });
+
+console.log('server:::', server);
 
 // 端口
 const PORT = 9888;
