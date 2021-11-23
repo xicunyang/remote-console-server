@@ -3,8 +3,8 @@ const WebSocket = require('ws');
 const https = require('https');
 const path = require('path');
 
-const certPath = path.join(__dirname, 'pem/full_chain.pem');
-const keyPath = path.join(__dirname, 'pem/private.key');
+const certPath = path.join(__dirname, 'pem/1_ws.yangxc.cn_bundle.crt');
+const keyPath = path.join(__dirname, 'pem/2_ws.yangxc.cn.key');
 
 console.log('certPath:::', certPath);
 console.log('keyPath:::', keyPath);
