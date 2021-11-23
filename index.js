@@ -3,6 +3,9 @@ const WebSocket = require('ws');
 const https = require('https');
 const path = require('path');
 
+// 端口
+const PORT = 9888;
+
 const certPath = path.join(__dirname, 'pem/1_ws.yangxc.cn_bundle.crt');
 const keyPath = path.join(__dirname, 'pem/2_ws.yangxc.cn.key');
 
@@ -15,9 +18,6 @@ const server = https.createServer({
 }).listen(PORT)
 
 console.log('server:::', server);
-
-// 端口
-const PORT = 9888;
 
 const wss = new WebSocket.Server({ server });
 
