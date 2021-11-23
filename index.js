@@ -1,9 +1,17 @@
+const fs = require('fs');
 const WebSocket = require('ws');
+const https = require('https');
+const path = require('path');
+
+const server = https.createServer({
+  cert: fs.readFileSync(path.join(__dirname, 'pem/fullchain.crt')),
+  key: fs.readFileSync(path.join(__dirname, 'pem/private.pem'))
+});
 
 // 端口
 const PORT = 9888;
 
-const wss = new WebSocket.Server({port: PORT});
+const wss = new WebSocket.Server({ server });
 
 wss.on("connection", (ws, req) => {
   console.log(`ip:${req.socket.remoteAddress} 客户端已连接`);
@@ -21,3 +29,5 @@ wss.on("connection", (ws, req) => {
     });
   });
 });
+
+server.listen(PORT);

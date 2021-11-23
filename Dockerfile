@@ -5,6 +5,8 @@ RUN yum -y install nodejs
 
 COPY index.js /node/remote-console-server/
 COPY package.json /node/remote-console-server/
+COPY pem/fullchain.crt /node/remote-console-server/pem/
+COPY pem/private.pem /node/remote-console-server/pem/
 
 RUN npm config set strict-ssl false
 RUN npm config set registry http://registry.npm.taobao.org/
