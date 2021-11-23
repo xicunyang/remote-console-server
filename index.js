@@ -12,7 +12,7 @@ console.log('keyPath:::', keyPath);
 const server = https.createServer({
   cert: fs.readFileSync(certPath),
   key: fs.readFileSync(keyPath)
-});
+}).listen(PORT)
 
 console.log('server:::', server);
 
@@ -38,4 +38,4 @@ wss.on("connection", (ws, req) => {
   });
 });
 
-server.listen(PORT);
+// server.listen(PORT);
