@@ -4,8 +4,8 @@ const https = require('https');
 const path = require('path');
 
 const server = https.createServer({
-  cert: fs.readFileSync(path.join(__dirname, 'pem/6661118_ws.yangxc.cn.pem')),
-  key: fs.readFileSync(path.join(__dirname, 'pem/6661118_ws.yangxc.cn.key')),
+  cert: fs.readFileSync(path.join(__dirname, 'pem/ws.yangxc.cn_chain.crt')),
+  key: fs.readFileSync(path.join(__dirname, 'pem/ws.yangxc.cn_key.key')),
   // pfx: fs.readFileSync(path.join(__dirname, 'pem/ws.yangxc.cn.pfx')),
   // passphrase: 'sample'
 });
