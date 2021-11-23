@@ -4,8 +4,10 @@ const https = require('https');
 const path = require('path');
 
 const server = https.createServer({
-  cert: fs.readFileSync(path.join(__dirname, 'pem/fullchain.crt')),
-  key: fs.readFileSync(path.join(__dirname, 'pem/private.pem'))
+  cert: fs.readFileSync(path.join(__dirname, 'pem/1_ws.yangxc.cn_bundle.crt')),
+  key: fs.readFileSync(path.join(__dirname, 'pem/2_ws.yangxc.cn.key')),
+  // pfx: fs.readFileSync(path.join(__dirname, 'pem/ws.yangxc.cn.pfx')),
+  // passphrase: 'sample'
 });
 
 // 端口
@@ -30,4 +32,6 @@ wss.on("connection", (ws, req) => {
   });
 });
 
-server.listen(PORT);
+server.listen(PORT, () => {
+  console.log('done');
+});
