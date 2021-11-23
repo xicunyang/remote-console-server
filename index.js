@@ -4,8 +4,8 @@ const https = require('https');
 const path = require('path');
 
 const server = https.createServer({
-  cert: fs.readFileSync(path.join(__dirname, 'pem/fullchain.crt')),
-  key: fs.readFileSync(path.join(__dirname, 'pem/private.pem'))
+  cert: fs.readFileSync(path.join(__dirname, 'pem/full_chain.pem')),
+  key: fs.readFileSync(path.join(__dirname, 'pem/private.key'))
 });
 
 // 端口
